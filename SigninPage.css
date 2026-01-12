@@ -1,0 +1,85 @@
+/* Page background */
+body.auth-body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #5a189a, #7b2cbf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Card */
+.auth-card {
+  background: white;
+  padding: 25px 20px;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #5a189a;
+}
+
+/* Inputs */
+.auth-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Button */
+.primary-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #7b2cbf;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(123, 44, 191, 0.8);
+}
+
+.primary-btn:hover {
+  box-shadow: 0 0 18px rgba(123, 44, 191, 1);
+}
+
+/* Signup text */
+.switch-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switch-text span {
+  color: #7b2cbf;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Home button */
+#homeBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+#homeBtn:hover {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 1);
+}

@@ -1,0 +1,96 @@
+/* Page background */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #7b2cbf, #5a189a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Countdown card */
+.countdown-card {
+  background: white;
+  padding: 25px 20px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  border-radius: 15px;
+
+  /* IMPORTANT FIX */
+  box-sizing: border-box;
+}
+
+/* Hover glow */
+.countdown-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+}
+
+/* Countdown layout */
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;   
+  gap: 15px;
+  margin: 15px 0;
+}
+
+/* Individual time box */
+.time-box {
+  background: #7b2cbf;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  width: 85px;        /* slightly smaller */
+  text-align: center;
+
+  box-shadow: 0 0 12px rgba(123, 44, 191, 0.8);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+/* Hover glow */
+.time-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(123, 44, 191, 1);
+}
+
+/* Number */
+.time-box span {
+  font-size: 28px;
+  font-weight: bold;
+  display: block;
+}
+
+/* Label */
+.time-box small {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Message */
+#countdownMessage {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* Home button */
+#homeBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+#homeBtn:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}

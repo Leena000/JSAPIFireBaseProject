@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Countdown</title>
+  <link rel="stylesheet" href="countDownBirthDays.css">
+</head>
+
+<body>
+
+  <!-- Home Button -->
+  <button id="homeBtn">🏠</button>
+
+  <div class="countdown-card">
+
+    <h2>🎂 Birthday Countdown</h2>
+
+    <!-- ROW 1: Months & Days -->
+    <div class="countdown-box">
+      <div class="time-box">
+        <span id="months">0</span>
+        <small>Months</small>
+      </div>
+
+      <div class="time-box">
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+    </div>
+
+    <!-- ROW 2: Hours, Minutes, Seconds -->
+    <div class="countdown-box">
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>Hours</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Minutes</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Seconds</small>
+      </div>
+    </div> 
+
+    <!-- LAST LINE -->
+    <p id="countdownMessage">
+      ⏳ Counting down to your special day!
+    </p>
+
+  </div>
+
+  <script src="countDownBirthDays.js"></script>
+</body>
+</html>
