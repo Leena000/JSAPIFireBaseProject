@@ -26,19 +26,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const uid = userCredential.user.uid;
 
-        // Save user data
-        firebase.database().ref("users/" + uid).set({
-          name,
-          dob,
-          email
+        // Save user data in Realtime Database (NO PASSWORD)
+        return firebase.database().ref("users/" + uid).set({
+          name: name,
+          dob: dob,
+          email: email,
+          password: password
         });
+      })
+      .then(() => {
+        console.log("Data saved in Realtime Database");
 
         localStorage.setItem("userName", name);
+        localStorage.setItem("userEmail", email);
         localStorage.setItem("userDOB", dob);
+        localStorage.setItem("password", password);
 
         alert("User Registered Successfully");
 
-        // ✅ CORRECT REDIRECT LOGIC
         if (isBirthdayToday(dob)) {
           window.location.href = "TodayBirthday.html";
         } else {
@@ -46,12 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-in-use") {
-          alert("User already registered. Please sign in.");
-        } else {
-          alert(error.message);
-        }
+        console.log("Signup error:", error.code, error.message);
+        alert(error.message);
       });
+
   });
 
   // GO TO SIGN IN
@@ -61,15 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// BIRTHDAY CHECK
+// BIRTHDAY CHECK (unchanged)
 function isBirthdayToday(dob) {
-  // dob format: YYYY-MM-DD
   const [year, month, day] = dob.split("-").map(Number);
-
   const today = new Date();
-  const todayMonth = today.getMonth() + 1; // JS months are 0-based
-  const todayDay = today.getDate();
-
-  return month === todayMonth && day === todayDay;
+  return month === today.getMonth() + 1 && day === today.getDate();
 }
-

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // SIGN IN
   loginBtn.addEventListener("click", () => {
+    console.log("Sign In button clicked");
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
