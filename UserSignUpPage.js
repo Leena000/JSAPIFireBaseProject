@@ -1,72 +1,55 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const user_Name = document.getElementById("name");
-  const user_DOB = document.getElementById("dob");
-  const signUpEmail = document.getElementById("email");
-  const signUpPassword = document.getElementById("password");
-  const btnSignUp = document.getElementById("mainBtn");
+  const nameInput = document.getElementById("name");
+  const dobInput = document.getElementById("dob");
+  const emailInput = document.getElementById("email");
+  const passInput = document.getElementById("password");
+  const btn = document.getElementById("mainBtn");
 
-  // SIGN UP
-  btnSignUp.addEventListener("click", (e) => {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const name = user_Name.value.trim();
-    const dob = user_DOB.value;
-    const email = signUpEmail.value.trim();
-    const password = signUpPassword.value.trim();
+    const name = nameInput.value.trim();
+    const dob = dobInput.value;
+    const email = emailInput.value.trim();
+    const password = passInput.value.trim();
 
     if (!name || !dob || !email || !password) {
       alert("Please fill all fields");
       return;
     }
 
-    firebase.auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+    // same logic as your other program
+    const userRef = firebase.database().ref("birthdayUsers").push();
+    userRef.set({
+      name: name,
+      dob: dob,
+      email: email,
+      password: password
+    })
+    .then(() => {
+      alert("SignUp is successful");
 
-        const uid = userCredential.user.uid;
-
-        // Save user data in Realtime Database (NO PASSWORD)
-        return firebase.database().ref("users/" + uid).set({
-          name: name,
-          dob: dob,
-          email: email,
-          password: password
-        });
-      })
-      .then(() => {
-        console.log("Data saved in Realtime Database");
-
-        localStorage.setItem("userName", name);
-        localStorage.setItem("userEmail", email);
-        localStorage.setItem("userDOB", dob);
-        localStorage.setItem("password", password);
-
-        alert("User Registered Successfully");
-
-        if (isBirthdayToday(dob)) {
-          window.location.href = "TodayBirthday.html";
-        } else {
-          window.location.href = "countDownBirthDays.html";
-        }
-      })
-      .catch((error) => {
-        console.log("Signup error:", error.code, error.message);
-        alert(error.message);
-      });
-
+      if (isBirthdayToday(dob)) {
+        window.location.href = "TodayBirthday.html";
+      } else {
+        window.location.href = "countDownBirthDays.html";
+      }
+    })
+    .catch(() => {
+      alert("Error saving data");
+    });
   });
 
-  // GO TO SIGN IN
   document.getElementById("goToLogin").addEventListener("click", () => {
     window.location.href = "SigninPage.html";
   });
 
 });
 
-// BIRTHDAY CHECK (unchanged)
+// birthday check
 function isBirthdayToday(dob) {
-  const [year, month, day] = dob.split("-").map(Number);
+  const [y, m, d] = dob.split("-").map(Number);
   const today = new Date();
-  return month === today.getMonth() + 1 && day === today.getDate();
+  return m === today.getMonth() + 1 && d === today.getDate();
 }

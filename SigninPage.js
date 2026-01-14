@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("homeBtn");
   const goToSignup = document.getElementById("goToSignup");
 
-  // HOME → Signup page
   homeBtn.addEventListener("click", () => {
     window.location.href = "UserSignUpPage.html";
   });
@@ -15,9 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "UserSignUpPage.html";
   });
 
-  // SIGN IN
   loginBtn.addEventListener("click", () => {
-    console.log("Sign In button clicked");
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
@@ -27,62 +24,50 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    firebase.auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+    // Read from same signup database
+    firebase.database().ref("birthdayUsers").once("value", (snapshot) => {
 
-        const uid = userCredential.user.uid;
+      if (!snapshot.exists()) {
+        alert("No users found");
+        return;
+      }
 
-        firebase.database().ref("users/" + uid).once("value")
-          .then(snapshot => {
+      let found = false;
 
-            if (!snapshot.exists()) {
-              alert("User data not found");
-              return;
-            }
+      snapshot.forEach((child) => {
+        const user = child.val();
 
-            const { name, dob } = snapshot.val();
+        if (user.email === email && user.password === password) {
+          found = true;
 
-            localStorage.setItem("userName", name);
-            localStorage.setItem("userDOB", dob);
+          localStorage.setItem("userName", user.name);
+          localStorage.setItem("userDOB", user.dob);
+          localStorage.setItem("userEmail", user.email);
 
-            if (isBirthdayToday(dob)) {
-              window.location.href = "TodayBirthday.html";
-            } else {
-              window.location.href = "countDownBirthDays.html";
-            }
-          });
-      })
-      .catch((error) => {
+          alert("Login Successful");
 
-        if (error.code === "auth/user-not-found") {
-          const wantsSignup = confirm(
-            "User not registered.\nDo you want to Sign Up now?"
-          );
-          if (wantsSignup) {
-            alert("Click the Home 🏠 button to Sign Up.");
+          if (isBirthdayToday(user.dob)) {
+            window.location.href = "TodayBirthday.html";
+          } else {
+            window.location.href = "countDownBirthDays.html";
           }
-        } else {
-          alert(error.message);
         }
       });
+
+      if (!found) {
+        alert("Wrong Email or Password");
+      }
+    });
   });
 
 });
 
-// Birthday check
+// Birthday check (same as yours)
 function isBirthdayToday(dob) {
   if (!dob) return false;
-
-  // dob format: YYYY-MM-DD
   const parts = dob.split("-");
   const month = Number(parts[1]);
   const day = Number(parts[2]);
-
   const today = new Date();
-  const todayMonth = today.getMonth() + 1;
-  const todayDay = today.getDate();
-
-  return month === todayMonth && day === todayDay;
+  return month === today.getMonth() + 1 && day === today.getDate();
 }
-

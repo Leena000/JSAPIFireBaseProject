@@ -83,3 +83,22 @@ body.auth-body {
 #homeBtn:hover {
   box-shadow: 0 0 18px rgba(255, 255, 255, 1);
 }
+.switch-text {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+#goToSignup {
+  color: #ff4081;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: 0.3s;
+}
+
+#goToSignup:hover {
+  color: #d81b60;
+  text-decoration: underline;
+}

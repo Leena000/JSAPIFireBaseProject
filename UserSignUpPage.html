@@ -2,49 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birthday App - Sign Up</title>
   <link rel="stylesheet" href="UserSignUpPage.css">
 </head>
-
 <body>
 
-  <div class="marquee-container">
-    <div class="marquee-track">
-      <h2>🎂 Birthday App 🎉</h2>
-      <h2>🎂 Birthday App 🎉</h2>
-      <h2>🎂 Birthday App 🎉</h2>
-      <h2>🎂 Birthday App 🎉</h2>
-    </div>
-  </div>
+<div class="form-box">
+  <form>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="date" id="dob">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="mainBtn">Sign Up</button>
+  </form>
 
-  <div class="form-box">
-    <form>
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="date" id="dob" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password" required>
+  <p>
+    Already registered? <span id="goToLogin">Sign In</span>
+  </p>
+</div>
 
-      <button id="mainBtn" type="submit">Sign Up</button>
-    </form>
-
-    <p class="switch-text">
-      Already registered?
-      <span id="goToLogin">Sign In</span>
-    </p>
-  </div>
-
-  <!-- Firebase -->
- <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 
 <script src="fireBaseConfigBirthdayapp.js"></script>
 <script src="UserSignUpPage.js"></script>
-
-
-  <!-- Page JS -->
-  <script src="UserSignUpPage.js"></script>
-
 </body>
 </html>

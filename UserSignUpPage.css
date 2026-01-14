@@ -174,4 +174,23 @@ button {
         transform: translateX(-50%);
     }
 }
+.switch-text {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+#goToLogin {
+  color: #ff4081;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: 0.3s ease;
+}
+
+#goToLogin:hover {
+  color: #d81b60;
+  text-decoration: underline;
+}
 
