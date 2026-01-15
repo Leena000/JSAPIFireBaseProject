@@ -1,15 +1,15 @@
-/* Page background */
+/* Body style for sign in page */
 body.auth-body {
-  margin: 0;
-  height: 100vh;
+  margin: 0;                 /* Remove space around page */
+  height: 100vh;             /* Full screen height */
   background: linear-gradient(135deg, #5a189a, #7b2cbf);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex;             /* Use flex */
+  justify-content: center;   /* Center left-right */
+  align-items: center;       /* Center up-down */
   font-family: Arial, sans-serif;
 }
 
-/* Card */
+/* Main card box */
 .auth-card {
   background: white;
   padding: 25px 20px;
@@ -20,13 +20,13 @@ body.auth-body {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Heading */
+/* Title text */
 .auth-card h2 {
   margin-bottom: 20px;
   color: #5a189a;
 }
 
-/* Inputs */
+/* Input boxes */
 .auth-card input {
   width: 100%;
   padding: 10px;
@@ -37,7 +37,7 @@ body.auth-body {
   box-sizing: border-box;
 }
 
-/* Button */
+/* Main button */
 .primary-btn {
   width: 100%;
   padding: 10px;
@@ -50,16 +50,18 @@ body.auth-body {
   box-shadow: 0 0 10px rgba(123, 44, 191, 0.8);
 }
 
+/* Button hover */
 .primary-btn:hover {
   box-shadow: 0 0 18px rgba(123, 44, 191, 1);
 }
 
-/* Signup text */
+/* Text under form */
 .switch-text {
   margin-top: 15px;
   font-size: 14px;
 }
 
+/* Clickable text */
 .switch-text span {
   color: #7b2cbf;
   cursor: pointer;
@@ -68,9 +70,9 @@ body.auth-body {
 
 /* Home button */
 #homeBtn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
+  position: fixed;      /* Stay in same place */
+  top: 15px;            /* From top */
+  right: 15px;          /* From right */
   background: white;
   border: none;
   border-radius: 50%;
@@ -80,9 +82,12 @@ body.auth-body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
 }
 
+/* Home hover */
 #homeBtn:hover {
   box-shadow: 0 0 18px rgba(255, 255, 255, 1);
 }
+
+/* Switch text (more style) */
 .switch-text {
   margin-top: 18px;
   font-size: 14px;
@@ -90,6 +95,7 @@ body.auth-body {
   text-align: center;
 }
 
+/* Signup link */
 #goToSignup {
   color: #ff4081;
   font-weight: 600;
@@ -98,6 +104,7 @@ body.auth-body {
   transition: 0.3s;
 }
 
+/* Hover on signup */
 #goToSignup:hover {
   color: #d81b60;
   text-decoration: underline;

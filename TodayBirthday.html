@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Character encoding -->
   <meta charset="UTF-8">
+
+  <!-- Page title shown in browser tab -->
   <title>Happy Birthday</title>
+
+  <!-- Link to CSS file for styling this page -->
   <link rel="stylesheet" href="TodayBirthday.css">
 </head>
 
 <body>
+
+  <!-- Home button to go back to start page -->
   <button id="homeBtn" title="Go to Home">🏠</button>
+
+  <!-- Container where confetti animation can appear -->
   <div id="confetti-container"></div>
 
+  <!-- Main birthday card -->
   <div class="birthday-card">
 
+    <!-- Main heading -->
     <h1>Happy Birthday</h1>
+
+    <!-- User name will be shown here using JavaScript -->
     <h2 id="userName"></h2>
 
+    <!-- Card for birthday quote -->
     <div class="quote-card">
+      <!-- Quote text will be added by JavaScript -->
       <p id="quoteText"></p>
+      <!-- Quote author will be added by JavaScript -->
       <p id="quoteAuthor"></p>
     </div>
 
+    <!-- Birthday images -->
     <div class="image-gallery">
-      <img src="cake1.jpg">
-      <img src="cake2.jpg">
-      <img src="cake3.jpg">
+      <img src="cake1.jpg">   <!-- Cake image 1 -->
+      <img src="cake2.jpg">   <!-- Cake image 2 -->
+      <img src="cake3.jpg">   <!-- Cake image 3 -->
     </div>
 
+    <!-- Background birthday music -->
     <audio id="birthdayMusic">
       <source src="HappyBirthday.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Button to play or stop music -->
     <button id="musicBtn">Play Music</button>
 
   </div>
 
+  <!-- JavaScript file for birthday page logic -->
   <script src="TodayBirthday.js"></script>
 </body>
 </html>

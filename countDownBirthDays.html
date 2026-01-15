@@ -1,58 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Page language and text type -->
   <meta charset="UTF-8">
+
+  <!-- Title on browser tab -->
   <title>Birthday Countdown</title>
+
+  <!-- Link to CSS file -->
   <link rel="stylesheet" href="countDownBirthDays.css">
 </head>
 
 <body>
 
-  <!-- Home Button -->
+  <!-- Home button to go back to start page -->
   <button id="homeBtn">🏠</button>
 
+  <!-- Main countdown card -->
   <div class="countdown-card">
 
+    <!-- Page heading -->
     <h2>🎂 Birthday Countdown</h2>
 
-    <!-- ROW 1: Months & Days -->
+    <!-- First row: shows months and days -->
     <div class="countdown-box">
+
+      <!-- Months box -->
       <div class="time-box">
-        <span id="months">0</span>
-        <small>Months</small>
+        <span id="months">0</span>     <!-- Months number -->
+        <small>Months</small>         <!-- Label -->
       </div>
 
+      <!-- Days box -->
       <div class="time-box">
-        <span id="days">0</span>
-        <small>Days</small>
+        <span id="days">0</span>       <!-- Days number -->
+        <small>Days</small>           <!-- Label -->
       </div>
     </div>
 
-    <!-- ROW 2: Hours, Minutes, Seconds -->
+    <!-- Second row: shows hours, minutes, seconds -->
     <div class="countdown-box">
+
+      <!-- Hours box -->
       <div class="time-box">
-        <span id="hours">00</span>
-        <small>Hours</small>
+        <span id="hours">00</span>     <!-- Hours number -->
+        <small>Hours</small>          <!-- Label -->
       </div>
 
+      <!-- Minutes box -->
       <div class="time-box">
-        <span id="minutes">00</span>
-        <small>Minutes</small>
+        <span id="minutes">00</span>   <!-- Minutes number -->
+        <small>Minutes</small>        <!-- Label -->
       </div>
 
+      <!-- Seconds box -->
       <div class="time-box">
-        <span id="seconds">00</span>
-        <small>Seconds</small>
+        <span id="seconds">00</span>   <!-- Seconds number -->
+        <small>Seconds</small>        <!-- Label -->
       </div>
     </div> 
 
-    <!-- LAST LINE -->
+    <!-- Message shown under countdown -->
     <p id="countdownMessage">
       ⏳ Counting down to your special day!
     </p>
 
   </div>
 
+  <!-- JavaScript file for countdown logic -->
   <script src="countDownBirthDays.js"></script>
 </body>
 </html>

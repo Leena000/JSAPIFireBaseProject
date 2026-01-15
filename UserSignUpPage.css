@@ -1,25 +1,28 @@
+/* Page background and default font */
 body {
   font-family: Arial;
   background: blueviolet;
 }
 
-
+/* Main form container */
 .form-box {
-  background:yellow;
+  background: yellow;
   width: 320px;
   padding: 20px;
-  margin: 120px auto;
+  margin: 120px auto;   /* center horizontally with top space */
   border-radius: 8px;
   text-align: center;
 }
 
+/* All input fields */
 input {
   width: 100%;
   margin: 8px;
   padding: 8px;
-  box-sizing: border-box;
+  box-sizing: border-box;  /* includes padding in width */
 }
 
+/* All buttons */
 button {
   width: 100%;
   margin-top: 12px;
@@ -30,150 +33,126 @@ button {
   border: none;
 }
 
+/* Text under form like: Already registered? */
 .switch-text {
   margin-top: 12px;
   font-size: 14px;
 }
 
+/* Clickable text inside switch-text */
 .switch-text span {
   color: blue;
   cursor: pointer;
   text-decoration: underline;
 }
 
+/* Message area for errors */
 #message {
   margin-top: 10px;
   color: red;
 }
-/* Page background */
+
+/* Full page center layout (used in other pages) */
 .auth-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #7b2ff7, #9f5cf7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #7b2ff7, #9f5cf7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
 }
 
-/* Card */
+/* Card style for login/signup pages */
 .auth-card {
-    background: white;
-    width: 320px;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    text-align: center;
+  background: white;
+  width: 320px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
-/* Heading */
+/* Card heading */
 .auth-card h2 {
-    margin-bottom: 20px;
-    color: #333;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Inputs */
+/* Inputs inside auth-card */
 .auth-card input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-/* Buttons */
+/* Main button style */
 .primary-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #4b00ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #4b00ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
+/* Secondary button style */
 .secondary-btn {
-    width: 100%;
-    padding: 10px;
-    background-color:yellow;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background-color: yellow;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Hover (optional but nice) */
+/* Hover effect for main button */
 .primary-btn:hover {
-    background-color: #3a00cc;
-}
-.marquee-container {
-    width: 100%;
-    overflow: hidden;   /* hides text outside screen */
-    background-color: #f5f5f5;
-    padding: 10px 0;
+  background-color: #3a00cc;
 }
 
+/* Container for moving text (marquee effect) */
 .marquee-container {
-    width: 100%;
-    overflow: hidden;   /* hides text outside screen */
-    background-color: #f5f5f5;
-    padding: 10px 0;
+  width: 100%;
+  overflow: hidden;     /* hides text outside screen */
+  background-color: #f5f5f5;
+  padding: 10px 0;
 }
 
-.marquee-container {
-    width: 100vw;          /* full screen width */
-    overflow: hidden;
-    background-color: #f5f5f5;
-    padding: 10px 0;
-}
-
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
-    background-color: #f5f5f5;
-    padding: 10px 0;
-}
-
+/* Track that moves */
 .marquee-track {
-    display: flex;
-    width: fit-content;
-    animation: marqueeMove 12s linear infinite;
+  display: flex;
+  width: 200%;          /* double width for smooth loop */
+  animation: marqueeMove 15s linear infinite;
 }
 
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
-    background-color: #f5f5f5;
-    padding: 10px 0;
-}
-
-/* Track must be DOUBLE WIDTH */
-.marquee-track {
-    display: flex;
-    width: 200%;                 /* 🔑 MOST IMPORTANT LINE */
-    animation: marqueeMove 15s linear infinite;
-}
-
+/* Text inside marquee */
 .marquee-track h2 {
-    width: 50%;                  /* each takes half */
-    white-space: nowrap;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #6a0dad;
+  width: 50%;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #6a0dad;
 }
 
-/* Move full width */
+/* Animation for moving text */
 @keyframes marqueeMove {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
+/* Switch text styling (duplicate but refined) */
 .switch-text {
   margin-top: 16px;
   font-size: 14px;
@@ -181,6 +160,7 @@ button {
   text-align: center;
 }
 
+/* Sign In link */
 #goToLogin {
   color: #ff4081;
   font-weight: 600;
@@ -189,8 +169,23 @@ button {
   transition: 0.3s ease;
 }
 
+/* Hover on Sign In link */
 #goToLogin:hover {
   color: #d81b60;
   text-decoration: underline;
 }
 
+/* Logout text style */
+#logoutBtn {
+  color: red;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+/* Hover for logout */
+#logoutBtn:hover {
+  color: darkred;
+}

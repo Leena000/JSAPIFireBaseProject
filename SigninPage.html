@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Page language and text format -->
   <meta charset="UTF-8">
+
+  <!-- Title shown in browser tab -->
   <title>Sign In</title>
+
+  <!-- Link to CSS file -->
   <link rel="stylesheet" href="SigninPage.css">
 </head>
 
+<!-- Body with special class for center layout -->
 <body class="auth-body">
 
-  <!-- Home button -->
+  <!-- Home button to go back to start page -->
   <button id="homeBtn">🏠</button>
 
+  <!-- Main card for sign in form -->
   <div class="auth-card">
+
+    <!-- Page heading -->
     <h2>Sign In</h2>
 
+    <!-- Input for user email -->
     <input type="email" id="loginEmail" placeholder="Email" required>
+
+    <!-- Input for user password -->
     <input type="password" id="loginPassword" placeholder="Password" required>
 
+    <!-- Button to submit login -->
     <button id="loginSubmit" class="primary-btn">Sign In</button>
 
+    <!-- Text for users who are new -->
     <p class="switch-text">
       Not registered?
+      <!-- Click to go to Sign Up page -->
       <span id="goToSignup">Sign Up</span>
     </p>
   </div>
 
-  <!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <!-- Firebase main library -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 
-<script src="fireBaseConfigBirthdayapp.js"></script>
-<script src="SigninPage.js"></script>
+  <!-- Firebase authentication library -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
 
+  <!-- Firebase database library -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+  <!-- Your Firebase settings file -->
+  <script src="fireBaseConfigBirthdayapp.js"></script>
+
+  <!-- Your sign in logic file -->
+  <script src="SigninPage.js"></script>
 
 </body>
 </html>

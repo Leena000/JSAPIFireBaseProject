@@ -1,15 +1,15 @@
 /* Page background */
 body {
-  margin: 0;
-  height: 100vh;
+  margin: 0;                     /* Remove page space */
+  height: 100vh;                 /* Full screen height */
   background: linear-gradient(135deg, #7b2cbf, #5a189a);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex;                 /* Use flex */
+  justify-content: center;       /* Center left-right */
+  align-items: center;           /* Center up-down */
   font-family: Arial, sans-serif;
 }
 
-/* Countdown card */
+/* Main white card */
 .countdown-card {
   background: white;
   padding: 25px 20px;
@@ -17,60 +17,56 @@ body {
   max-width: 380px;
   text-align: center;
   border-radius: 15px;
-
-  /* IMPORTANT FIX */
-  box-sizing: border-box;
+  box-sizing: border-box;        /* Keep size correct */
 }
 
-/* Hover glow */
+/* Card hover effect */
 .countdown-card:hover {
   transform: scale(1.02);
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
 }
 
-/* Countdown layout */
+/* Row that holds time boxes */
 .countdown-box {
-  display: flex;
+  display: flex;                /* Boxes in row */
   justify-content: center;
-  flex-wrap: wrap;   
+  flex-wrap: wrap;              /* Move to next line if needed */
   gap: 15px;
   margin: 15px 0;
 }
 
-/* Individual time box */
+/* Each time box */
 .time-box {
   background: #7b2cbf;
   color: white;
   padding: 12px;
   border-radius: 12px;
-  width: 85px;        /* slightly smaller */
+  width: 85px;
   text-align: center;
-
   box-shadow: 0 0 12px rgba(123, 44, 191, 0.8);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
-/* Hover glow */
+/* Time box hover */
 .time-box:hover {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(123, 44, 191, 1);
 }
 
-/* Number */
+/* Big number */
 .time-box span {
   font-size: 28px;
   font-weight: bold;
   display: block;
 }
 
-/* Label */
+/* Small label */
 .time-box small {
   font-size: 12px;
   opacity: 0.9;
 }
 
-/* Message */
+/* Message text */
 #countdownMessage {
   margin-top: 10px;
   font-size: 15px;
@@ -78,7 +74,7 @@ body {
 
 /* Home button */
 #homeBtn {
-  position: fixed;
+  position: fixed;              /* Stay in corner */
   top: 15px;
   right: 15px;
   background: white;
@@ -91,6 +87,7 @@ body {
   z-index: 10;
 }
 
+/* Home Button hover */
 #homeBtn:hover {
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }

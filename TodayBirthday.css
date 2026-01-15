@@ -1,47 +1,54 @@
+/* Full page layout */
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: #7b2cbf;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
+  margin: 0;                      /* Remove default space */
+  min-height: 100vh;              /* Full screen height */
+  background: #7b2cbf;            /* Purple background */
+  display: flex;                  /* Use flexbox */
+  justify-content: center;        /* Center horizontally */
+  align-items: center;            /* Center vertically */
+  font-family: Arial, sans-serif; /* Default font */
 }
 
+/* Main birthday card */
 .birthday-card {
-  background: yellow;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  max-width: 400px;
+  background: yellow;             /* Card background color */
+  padding: 30px;                  /* Space inside card */
+  border-radius: 15px;            /* Rounded corners */
+  text-align: center;             /* Center text */
+  max-width: 400px;               /* Limit card width */
 }
 
+/* Container for images */
 .image-gallery {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 15px 0;
+  display: flex;                  /* Images in a row */
+  justify-content: center;        /* Center images */
+  gap: 10px;                      /* Space between images */
+  margin: 15px 0;                 /* Top and bottom space */
 }
 
+/* Images inside gallery */
 .image-gallery img {
-  width: 90px;
-  height: 90px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-#homeBtn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  padding: 8px 10px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  width: 90px;                    /* Image width */
+  height: 90px;                   /* Image height */
+  border-radius: 10px;            /* Rounded image corners */
+  object-fit: cover;              /* Fit image inside box */
 }
 
+/* Home button at top-right */
+#homeBtn {
+  position: fixed;                /* Always stay in same place */
+  top: 15px;                      /* Distance from top */
+  right: 15px;                    /* Distance from right */
+  background: white;              /* Button color */
+  border: none;                   /* Remove border */
+  border-radius: 50%;             /* Make it round */
+  padding: 8px 10px;              /* Button size */
+  cursor: pointer;                /* Hand cursor */
+  font-size: 16px;                /* Icon/text size */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Shadow */
+}
+
+/* Hover effect for home button */
 #homeBtn:hover {
-  background: #f1f1f1;
+  background: #f1f1f1;            /* Light gray on hover */
 }

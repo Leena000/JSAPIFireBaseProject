@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Character encoding for the page -->
   <meta charset="UTF-8">
+
+  <!-- Title shown on browser tab -->
   <title>Birthday App - Sign Up</title>
+
+  <!-- Link to external CSS file for styling -->
   <link rel="stylesheet" href="UserSignUpPage.css">
 </head>
 <body>
 
+<!-- Main container box for the signup form -->
 <div class="form-box">
+
+  <!-- Form for taking user input -->
   <form>
+
+    <!-- Input for user's full name -->
     <input type="text" id="name" placeholder="Full Name">
+
+    <!-- Input for user's date of birth -->
     <input type="date" id="dob">
+
+    <!-- Input for user's email address -->
     <input type="email" id="email" placeholder="Email">
+
+    <!-- Input for user's password -->
     <input type="password" id="password" placeholder="Password">
+
+    <!-- Button to submit the signup form -->
     <button id="mainBtn">Sign Up</button>
+
   </form>
 
+  <!-- Text for users who are already registered -->
   <p>
-    Already registered? <span id="goToLogin">Sign In</span>
+    Already registered? 
+    <!-- Clicking this will go to Sign In page -->
+    <span id="goToLogin">Sign In</span>
   </p>
+  
 </div>
 
-<!-- Firebase -->
+<!-- Firebase library for connecting to Firebase app -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+
+<!-- Firebase library for using Firebase database -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 
+<!-- Your Firebase configuration file -->
 <script src="fireBaseConfigBirthdayapp.js"></script>
+
+<!-- Your custom JavaScript file for signup logic -->
 <script src="UserSignUpPage.js"></script>
+
 </body>
 </html>
