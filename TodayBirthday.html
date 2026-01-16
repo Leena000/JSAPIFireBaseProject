@@ -12,9 +12,13 @@
 </head>
 
 <body>
-
-  <!-- Home button to go back to start page -->
+<!-- Home and logout buttons -->
+<div class="top-buttons">
   <button id="homeBtn" title="Go to Home">🏠</button>
+  <button id="logoutBtn" title="Logout">🚪 Logout</button>
+</div>
+
+
 
   <!-- Container where confetti animation can appear -->
   <div id="confetti-container"></div>
@@ -52,8 +56,18 @@
     <button id="musicBtn">Play Music</button>
 
   </div>
+<!-- Firebase core -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 
-  <!-- JavaScript file for birthday page logic -->
-  <script src="TodayBirthday.js"></script>
-</body>
-</html>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+<!-- Firebase Database -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+<!-- Your Firebase config -->
+<script src="fireBaseConfigBirthdayapp.js"></script>
+
+<!-- Your page logic -->
+<script src="TodayBirthday.js"></script>
+

@@ -1,88 +1,92 @@
 // Run when page is ready
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Get user name from browser memory
-  const storedName = localStorage.getItem("userName");
+  // Show user name
+  const userName = localStorage.getItem("userName");
+  document.getElementById("userName").innerText = userName || "Guest";
 
-  // Show name on page, or Guest if empty
-  document.getElementById("userName").innerText = storedName || "Guest";
-
-  // Get birthday quotes from internet
+  // Get random birthday quote
   fetch("https://corsproxy.io/?https://type.fit/api/quotes")
     .then(res => res.json())
-    .then(quotes => {
+    .then(data => {
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const quote = data[randomIndex];
 
-      // Pick one random quote
-      const q = quotes[Math.floor(Math.random() * quotes.length)];
-
-      // Show quote text
-      document.getElementById("quoteText").innerText = `"${q.text}"`;
-
-      // Show author name or Unknown
+      document.getElementById("quoteText").innerText = `"${quote.text}"`;
       document.getElementById("quoteAuthor").innerText =
-        q.author ? `— ${q.author}` : "— Unknown";
+        quote.author ? `— ${quote.author}` : "— Unknown";
     })
     .catch(() => {
-      // If quote does not load
       document.getElementById("quoteText").innerText =
         "Wishing you a very Happy Birthday!";
       document.getElementById("quoteAuthor").innerText = "";
     });
 
-  // When home button is clicked
+  // Home button
   const homeBtn = document.getElementById("homeBtn");
-  if (homeBtn) {
-    homeBtn.addEventListener("click", () => {
-      // Go to signup page
-      window.location.href = "UserSignUpPage.html";
-    });
-  }
+  homeBtn.addEventListener("click", () => {
+    window.location.href = "UserSignUpPage.html";
+  });
 
-  // Music play and stop
+  // Logout button (Firebase signout)
+  const logoutBtn = document.getElementById("logoutBtn");
+  logoutBtn.addEventListener("click", () => {
+
+    firebase.auth().signOut()
+      .then(() => {
+
+        // Clear saved user info
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userDOB");
+        localStorage.removeItem("userEmail");
+
+        alert("You are logged out");
+
+        // Go to signup page
+        window.location.href = "UserSignUpPage.html";
+
+      })
+      .catch(() => {
+        alert("Logout failed");
+      });
+
+  });
+
+  // Music play / stop
   const music = document.getElementById("birthdayMusic");
-  const playBtn = document.getElementById("musicBtn");
-
+  const musicBtn = document.getElementById("musicBtn");
   let isPlaying = false;
 
-  playBtn.addEventListener("click", () => {
+  musicBtn.addEventListener("click", () => {
     if (!isPlaying) {
-      // Start music
       music.play();
-      playBtn.innerText = "Stop Music";
+      musicBtn.innerText = "Stop Music";
       isPlaying = true;
     } else {
-      // Stop music
       music.pause();
       music.currentTime = 0;
-      playBtn.innerText = "Play Music";
+      musicBtn.innerText = "Play Music";
       isPlaying = false;
     }
   });
 
 });
 
-// Make confetti on screen
+// Confetti effect
 function createConfetti() {
   const container = document.getElementById("confetti-container");
   const colors = ["red", "yellow", "blue", "green", "pink", "orange"];
 
   for (let i = 0; i < 50; i++) {
     const confetti = document.createElement("div");
-    confetti.classList.add("confetti");
+    confetti.className = "confetti";
 
-    // Random position
     confetti.style.left = Math.random() * 100 + "vw";
-
-    // Random color
     confetti.style.backgroundColor =
       colors[Math.floor(Math.random() * colors.length)];
-
-    // Random speed
     confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
 
     container.appendChild(confetti);
-
-    // Remove after 5 seconds
     setTimeout(() => confetti.remove(), 5000);
   }
 }

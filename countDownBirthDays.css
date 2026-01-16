@@ -72,11 +72,17 @@ body {
   font-size: 15px;
 }
 
-/* Home button */
-#homeBtn {
-  position: fixed;              /* Stay in corner */
+.top-buttons {
+  position: fixed;
   top: 15px;
   right: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+/* Home button */
+#homeBtn {
   background: white;
   border: none;
   border-radius: 50%;
@@ -84,10 +90,20 @@ body {
   font-size: 16px;
   cursor: pointer;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-  z-index: 10;
 }
 
-/* Home Button hover */
-#homeBtn:hover {
+/* Logout button */
+#logoutBtn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+#homeBtn:hover, #logoutBtn:hover {
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }

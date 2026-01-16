@@ -13,8 +13,12 @@
 
 <body>
 
-  <!-- Home button to go back to start page -->
+  <!-- Home button to go back and logout  start page -->
+  <div class="top-buttons">
   <button id="homeBtn">🏠</button>
+  <button id="logoutBtn">🚪 Logout</button>
+</div>
+
 
   <!-- Main countdown card -->
   <div class="countdown-card">
@@ -66,6 +70,17 @@
     </p>
 
   </div>
+  <!-- Firebase core -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+<!-- Firebase Database -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+<!-- Your Firebase config -->
+<script src="fireBaseConfigBirthdayapp.js"></script>
 
   <!-- JavaScript file for countdown logic -->
   <script src="countDownBirthDays.js"></script>

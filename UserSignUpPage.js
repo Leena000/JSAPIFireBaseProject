@@ -35,6 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
       password: password
     })
     .then(() => {
+      
+  // Save for other pages
+  localStorage.setItem("userName", name);
+  localStorage.setItem("userDOB", dob);
+  localStorage.setItem("userEmail", email);
       alert("SignUp is successful");
 
       // Check if today is user's birthday

@@ -1,51 +1,64 @@
-// Run when page is loaded
+// Run when page loads
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Get user's date of birth from browser
+  // Get DOB from localStorage
   const dob = localStorage.getItem("userDOB");
 
-  // Home button click
-  document.getElementById("homeBtn").addEventListener("click", () => {
-    window.location.href = "UserSignUpPage.html";
-  });
+  // Home button
+  const homeBtn = document.getElementById("homeBtn");
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      window.location.href = "UserSignUpPage.html";
+    });
+  }
 
-  // If no date of birth found
+  // Logout button
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      firebase.auth().signOut()
+        .then(() => {
+          localStorage.clear();
+          alert("You are logged out");
+          window.location.href = "UserSignUpPage.html";
+        })
+        .catch(() => {
+          alert("Logout failed");
+        });
+    });
+  }
+
+  // If DOB not found
   if (!dob) {
     document.getElementById("countdownMessage").innerText =
       "Date of Birth not found";
     return;
   }
 
-  // Convert DOB string to Date
-  const birthDate = new Date(dob);
+  // Read DOB as local date
+  const parts = dob.split("-");
+  const birthMonth = Number(parts[1]) - 1;
+  const birthDay = Number(parts[2]);
 
-  // Function to update countdown
   function updateCountdown() {
-    const now = new Date();  // Current date and time
+    const now = new Date();
 
-    // Set next birthday for this year
-    let nextBirthday = new Date(
-      now.getFullYear(),
-      birthDate.getMonth(),
-      birthDate.getDate()
-    );
+    // Create next birthday
+    let nextBirthday = new Date(now.getFullYear(), birthMonth, birthDay);
 
-    // If birthday already passed this year, use next year
-    if (nextBirthday < now) {
-      nextBirthday.setFullYear(now.getFullYear() + 1);
+    if (nextBirthday <= now) {
+      nextBirthday = new Date(now.getFullYear() + 1, birthMonth, birthDay);
     }
 
-    // Time difference in milliseconds
-    const diffMs = nextBirthday - now;
+    const diff = nextBirthday - now;
 
-    // If birthday is today
-    if (diffMs <= 0) {
+    if (diff <= 0) {
       window.location.href = "TodayBirthday.html";
       return;
     }
 
-    // Convert time to seconds, minutes, hours, days
-    const totalSeconds = Math.floor(diffMs / 1000);
+    // Time calculations
+    const totalSeconds = Math.floor(diff / 1000);
     const seconds = totalSeconds % 60;
 
     const totalMinutes = Math.floor(totalSeconds / 60);
@@ -55,26 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const hours = totalHours % 24;
 
     const totalDays = Math.floor(totalHours / 24);
-
-    // Convert days to months and days (simple way)
     const months = Math.floor(totalDays / 30);
     const days = totalDays % 30;
 
-    // Show values on page
+    // Show on page
     document.getElementById("months").innerText = months;
     document.getElementById("days").innerText = days;
     document.getElementById("hours").innerText = String(hours).padStart(2, "0");
     document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
     document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
 
-    // Show message
     document.getElementById("countdownMessage").innerText =
       "⏳ Counting down to your special day!";
   }
 
-  // Run once when page opens
+  // Start countdown
   updateCountdown();
-
-  // Run every second
   setInterval(updateCountdown, 1000);
+
 });
